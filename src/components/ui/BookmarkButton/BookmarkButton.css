@@ -1,0 +1,20 @@
+.bookmark-button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 50%;
+    background-image: url('../../../images/bookmark-icon-not-added.svg');
+    background-color: transparent;
+}
+
+.bookmark-button_is-added {
+    background-image: url('../../../images/bookmark-icon-is-added.svg');
+}
+
+.bookmark-button:hover {
+    cursor: pointer;
+}
+
+.bookmark-button:focus {
+    outline: none;
+}

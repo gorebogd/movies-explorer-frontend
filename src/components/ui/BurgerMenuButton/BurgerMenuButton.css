@@ -1,0 +1,27 @@
+.menu-button {
+    width: 44px;
+    height: 44px;
+    background-color: #202020;
+    background-image: url('../../../images/burger-open-button.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    transition: opacity .3s ease-in-out;
+    opacity: 1;
+}
+
+.menu-button:focus {
+    outline: none;
+}
+
+.menu-button:hover {
+    cursor: pointer;
+    opacity: .6;
+}
+
+@media screen and (max-width: 320px) {
+    .menu-button {
+        width: 40px;
+        height: 43px;
+    }
+}
