@@ -1,3 +1,4 @@
+import React from 'react';
 import {Route, Switch} from 'react-router-dom';
 import Header from '../Header/Header';
 import Main from '../Main/Main';
@@ -11,13 +12,16 @@ import Login from '../Login/Login';
 import './App.css';
 
 function App() {
+
+    const [loggedIn, setLoggedIn] = React.useState(false);
+
     return (
         <div className="App">
             <div className="page-container">
 
                 <Switch>
                     <Route exact path="/">
-                        <Header/>
+                        <Header loggedIn={loggedIn} />
                         <Main/>
                         <Footer/>
                     </Route>
