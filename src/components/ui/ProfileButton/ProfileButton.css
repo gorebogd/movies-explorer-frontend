@@ -1,0 +1,28 @@
+.profile-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 20px;
+    background-color: #343434;
+    width: 100px;
+    height: 32px;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    line-height: .9;
+    font-weight: 500;
+    font-style: normal;
+    color: #FFF;
+    text-decoration: none;
+    transition: opacity .3s ease-in-out;
+    opacity: 1;
+}
+
+.profile-button:hover {
+    opacity: .6;
+}
+
+
+
+
