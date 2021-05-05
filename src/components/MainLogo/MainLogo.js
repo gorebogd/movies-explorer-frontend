@@ -1,7 +1,7 @@
 import React from 'react';
 
 function MainLogo() {
-    return(
+    return (
         <svg width="38" height="38" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M0 19C0 8.507 8.507 0 19 0s19 8.507 19 19-8.507 19-19 19S0 29.493 0 19z" fill="#3DDC84"/>
             <path

@@ -2,22 +2,42 @@ import React, {useState} from 'react';
 import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import Preloader from '../Preloader/Preloader';
+import {SHORT_MOVIE_DURATION_MIN} from '../../utils/constants';
 import './Movies.css';
-import {tempCards} from '../../data/tempCards';
 
-function Movies() {
-    const [isLoading, setIsLoading] = useState(true);
-    const showLoadingSample = () => {
-        setIsLoading(false);
+function Movies({
+                    savedMovies, onSubmitSearch, movies, isLoading, loadingError, onBookmarkClick, isMovieAdded,
+                }) {
+    const [filterIsOn, setFilterIsOn] = useState(false);
+
+    const filterShortFilm = (moviesToFilter) => moviesToFilter.filter((item) => item.duration < SHORT_MOVIE_DURATION_MIN);
+
+    const onFilterClick = () => {
+        setFilterIsOn(!filterIsOn);
     };
-    setTimeout(showLoadingSample, 1000);
 
     return (
         <div className="movies">
-            <SearchForm/>
-            {isLoading
-                ? <Preloader/>
-                : <MoviesCardList moviesData={tempCards} isRenderInSaved={false} enableLoadMoreBtn/>}
+            <SearchForm onFilterClick={onFilterClick} onSearch={onSubmitSearch}/>
+
+            {isLoading && <Preloader/>}
+
+            {!isLoading
+            && loadingError === ''
+            && (
+                <MoviesCardList
+                    savedMovies={savedMovies}
+                    movies={filterIsOn ? filterShortFilm(movies) : movies}
+                    onBookmarkClick={onBookmarkClick}
+                    isMovieAdded={isMovieAdded}
+                />
+            )}
+
+            {
+                !isLoading
+                && loadingError !== ''
+                && <div className="movies__error">{loadingError}</div>
+            }
         </div>
     );
 }

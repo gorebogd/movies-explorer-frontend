@@ -6,6 +6,10 @@
     padding: 0 70px 0 70px;
 }
 
+.movies__error {
+    margin-top: 10px;
+}
+
 @media screen and (max-width: 900px) {
     .movies {
         padding: 0 30px 0 30px;
