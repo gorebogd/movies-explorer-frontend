@@ -21,7 +21,7 @@
     transform: translateX(0);
 }
 
-.burger-menu__close-btn {
+.burger-menu__close-button {
     position: absolute;
     top: 22px;
     right: 22px;
@@ -36,12 +36,12 @@
     opacity: 1;
 }
 
-.burger-menu__close-btn:hover {
+.burger-menu__close-button:hover {
     cursor: pointer;
     opacity: .6;
 }
 
-.burger-menu__close-btn:focus {
+.burger-menu__close-button:focus {
     outline: none;
 }
 
