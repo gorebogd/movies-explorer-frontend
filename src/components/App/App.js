@@ -57,7 +57,7 @@ function App() {
         const token = localStorage.getItem('token');
         if (token) {
             mainApi
-                .checkToken(token)
+                .tokenCheck(token)
                 .then((res) => {
                     if (res) {
                         setLoggedIn(true);
@@ -122,7 +122,7 @@ function App() {
 
     const changeProfileData = (newUserData) => {
         const {name, email} = newUserData;
-        mainApi.saveUserInfo(name, email)
+        mainApi.setUserInfo(name, email)
             .then((data) => {
                 setCurrentUser(data);
                 setEditIsSuccess(true);

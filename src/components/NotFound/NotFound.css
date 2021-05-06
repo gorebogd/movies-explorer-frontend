@@ -24,18 +24,27 @@
     font-weight: 400;
 }
 
-.not-found__link {
+.not-found__button {
     font-size: 14px;
     line-height: 1.21;
     font-weight: 400;
     text-decoration: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    background-color: #202020;
     color: #4285F4;
     transition: opacity .3s ease-in-out;
     opacity: 1;
 }
 
-.not-found__link:hover {
+.not-found__button:hover {
+    cursor: pointer;
     opacity: .6;
+}
+
+.not-found__button:focus {
+    outline: none;
 }
 
 @media screen and (max-width: 400px) {
@@ -50,7 +59,7 @@
         line-height: 1.16;
     }
 
-    .not-found__link {
+    .not-found__button {
         font-size: 12px;
         line-height: 1.25;
     }

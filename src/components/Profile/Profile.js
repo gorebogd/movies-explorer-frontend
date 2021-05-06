@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import useFormWithValidation from '../../hooks/useFormWithValidation';
+import useFormWithValidation from '../../hooks/useFormValidation';
 import './Profile.css';
 
 function Profile({

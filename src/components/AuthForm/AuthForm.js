@@ -1,62 +1,81 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import SubmitButton from '../ui/SubmitButton/SubmitButton';
 import './AuthForm.css';
 
-function AuthForm({FormTypeLogin}) {
-    return (
-        <form className="auth-form">
+function AuthForm({
+                      FormTypeLogin, onSubmit, formData, isSignUpError, isSignInError,
+                  }) {
+    const {
+        values, handleChange, errors, isValid, resetForm,
+    } = formData;
 
-            {FormTypeLogin ? null : (
+    useEffect(() => {
+        resetForm();
+    }, [resetForm]);
+
+    return (
+        <form
+            className="auth-form"
+            onSubmit={onSubmit}
+            noValidate
+        >
+
+            {!FormTypeLogin && (
                 <label className="auth-form__label" htmlFor="name">
                     Имя
                     <input
-                        className="auth-form__input"
-                        id="name"
+                        className={`auth-form__input ${errors.name && 'auth-form__input_has_error'}`}
                         required
+                        minLength="2"
+                        maxLength="30"
                         name="name"
                         type="text"
                         placeholder="Имя"
+                        onChange={handleChange}
+                        value={values.name || ''}
+                        autoComplete="off"
                     />
-                    <span className="auth-form__error"/>
+                    <span className="auth-form__error">{errors.name}</span>
                 </label>
             )}
 
             <label className="auth-form__label" htmlFor="email">
-                E-mail
+                Почта
                 <input
-                    className="auth-form__input"
-                    id="email"
+                    className={`auth-form__input ${errors.email && 'auth-form__input_has_error'}`}
                     required
                     name="email"
                     type="email"
                     placeholder="Почта"
+                    onChange={handleChange}
+                    value={values.email || ''}
+                    autoComplete="off"
                 />
             </label>
-            <span className="auth-form__error"/>
+            <span className="auth-form__error">{errors.email}</span>
 
             <label className="auth-form__label" htmlFor="password">
                 Пароль
                 <input
-                    className={FormTypeLogin
-                        ? 'auth-form__input'
-                        : 'auth-form__input auth-form__input_is-error'}
-                    id="password"
+                    className={`auth-form__input ${errors.password && 'auth-form__input_has_error'}`}
                     required
                     name="password"
                     type="password"
-                    defaultValue={FormTypeLogin ? '' : '****************'}
                     placeholder="Пароль"
+                    onChange={handleChange}
+                    value={values.password || ''}
+                    autoComplete="off"
                 />
-                {FormTypeLogin
-                    ? null
-                    : <span className="auth-form__error auth-form__error_is-active">Что-то пошло не так...</span>}
+                <span className="auth-form__error">{errors.password}</span>
 
             </label>
             <div className={FormTypeLogin
-                ? 'auth-form__submit-wrapper_type_signin'
-                : 'auth-form__submit-wrapper_type_signup'}
+                ? 'auth-form__submit-wrapper auth-form__submit-wrapper_type_signin'
+                : 'auth-form__submit-wrapper auth-form__submit-wrapper_type_signup'}
             >
-                <SubmitButton label={FormTypeLogin ? 'Войти' : 'Зарегистрироваться'}/>
+                {isSignUpError && <span className="auth-form__error">Ошибка при регистрации</span>}
+                {isSignInError && <span className="auth-form__error">Вы не авторизированы</span>}
+                <SubmitButton isDisabled={!isValid} label={FormTypeLogin ? 'Войти' : 'Зарегистрироваться'}/>
             </div>
         </form>
     );

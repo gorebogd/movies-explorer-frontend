@@ -1,7 +1,7 @@
 import React from 'react';
 import BookmarkButton from '../ui/BookmarkButton/BookmarkButton';
 import BookmarkRemoveButton from '../ui/BookmarkRemoveButton/BookmarkRemoveButton';
-import durationFormatter from '../../helpers/movieCardHelper';
+import durationFormatter from '../../utils/durationFormatter';
 import './MoviesCard.css';
 
 function MoviesCard({
