@@ -1,6 +1,6 @@
 import React from 'react';
 import './AboutMe.css';
-import myPhoto from '../../images/tem-bio-photo.jpg';
+import myPhoto from '../../images/bio-photo.jvHAYjxqbbDcZxPEv6xGMysjaPg';
 import Portfolio from '../Portfolio/Portfolio';
 
 function AboutMe() {
@@ -10,13 +10,12 @@ function AboutMe() {
             <div className="about-me__bio-wrapper">
                 <div className="about-me__bio-information">
                     <div className="about-me__bio-information-container">
-                        <h2 className="about-me__bio-title">Виталий</h2>
-                        <p className="about-me__bio-subtitle">Фронтенд-разработчик, 30 лет</p>
+                        <h2 className="about-me__bio-title">Богдан</h2>
+                        <p className="about-me__bio-subtitle">Фронтенд-разработчик, 27 лет</p>
                         <p className="about-me__bio-text">
-                            Я родился и живу в Саратове, закончил факультет экономики СГУ. У меня есть жена
-                            и дочь. Я люблю слушать музыку, а ещё увлекаюсь бегом. Недавно начал кодить.
-                            С 2015 года работал в компании «СКБ Контур». После того, как прошёл курс по
-                            веб-разработке, начал заниматься фриланс-заказами и ушёл с постоянной работы.
+                            Я родился в Заречном, а живу и работаю в Москве. Закончил исторический факультет ПГУ. У меня есть красивая подруга Ксюша
+                            и пёс Немо. Я люблю второй альбом The Haxan Cloak, японские десерты, поке и приседать на уши.
+                            Работаю в диджитал-маркетинге 2 года. Обязательно стану самым профессиональным разработчиком в мире.
                         </p>
                     </div>
                     <div className="about-me__links-container">
