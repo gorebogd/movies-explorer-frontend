@@ -110,7 +110,7 @@ function App() {
         setLoggedIn(false);
         setCurrentUser({});
 
-        localStorage.removeItem('allMovies');
+        localStorage.removeItem('movies');
         localStorage.removeItem('savedMovies');
         setMovies([]);
         setSavedMovies([]);
@@ -140,10 +140,10 @@ function App() {
             });
     };
 
-    const getAllMoviesData = () => {
+    const getMoviesData = () => {
         getMovies()
             .then((data) => {
-                const allMoviesData = data.map((item) => {
+                const moviesData = data.map((item) => {
                     const imageURL = item.image ? item.image.url : '';
                     return {
                         ...item,
@@ -152,11 +152,11 @@ function App() {
                     };
                 });
 
-                localStorage.setItem('allMovies', JSON.stringify(allMoviesData));
-                setMovies(allMoviesData);
+                localStorage.setItem('movies', JSON.stringify(moviesData));
+                setMovies(moviesData);
             })
             .catch(() => {
-                localStorage.removeItem('allMovies');
+                localStorage.removeItem('movies');
                 setLoadingError('Во время запроса произошла ошибка. '
                     + 'Возможно, проблема с соединением или сервер недоступен. '
                     + 'Подождите немного и попробуйте ещё раз');
@@ -180,11 +180,11 @@ function App() {
     };
 
     useEffect(() => {
-        const allMoviesArr = JSON.parse(localStorage.getItem('allMovies'));
-        if (allMoviesArr) {
-            setMovies(allMoviesArr);
+        const moviesArr = JSON.parse(localStorage.getItem('movies'));
+        if (moviesArr) {
+            setMovies(moviesArr);
         } else {
-            getAllMoviesData();
+            getMoviesData();
         }
 
         const saved = JSON.parse(localStorage.getItem('savedMovies'));
@@ -197,7 +197,7 @@ function App() {
 
     useEffect(() => {
         if (loggedIn) {
-            getAllMoviesData();
+            getMoviesData();
             getSavedMovies();
         }
     }, [loggedIn]);
@@ -252,6 +252,7 @@ function App() {
                 console.error(err);
             });
     };
+
 
     const bookmarkHandler = (m, isAdded) => (isAdded ? addToBookmarks(m) : removeFromBookmark(m));
 
