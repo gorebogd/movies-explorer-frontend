@@ -2,6 +2,9 @@
 
 Макет дипломного проекта - https://www.figma.com/file/qgudBk4LiP5SvY17jsSeSO/?node-id=891%3A3857
 
+Адрес дипломного проекта - https://gbogd.nomoredomains.icu
+
+
 ## Запуск проекта
 
 `yarn start` — запускает проект локально
