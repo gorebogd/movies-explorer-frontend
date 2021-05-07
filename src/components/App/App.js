@@ -231,6 +231,7 @@ function App() {
         mainApi
             .addBookmark(movie)
             .then((res) => {
+                console.log(res);
                 setSavedMovies([...savedMovies, {...res, id: res.movieId}]);
             })
             .catch((err) => {
