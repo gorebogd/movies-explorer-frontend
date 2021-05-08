@@ -7,7 +7,7 @@ function BurgerMenu({isOpen, closeHandler}) {
     return (
         <div className={`burger-menu ${isOpen ? 'burger-menu_is-open' : ''}`}>
             <button
-                className="burger-menu__close-btn"
+                className="burger-menu__close-button"
                 onClick={closeHandler}
                 type="button"
                 tabIndex={0}

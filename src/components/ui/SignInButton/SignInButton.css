@@ -20,9 +20,9 @@
 @media screen and (max-width: 320px) {
     .sign-in-button {
         display: flex;
-        justify-content:center;
+        justify-content: center;
         align-items: center;
-        box-sizing:border-box; 
+        box-sizing: border-box;
         height: 26px;
         width: 54px;
         font-size: 10px;

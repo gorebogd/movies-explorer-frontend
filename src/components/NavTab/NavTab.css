@@ -37,13 +37,13 @@
 
 @media screen and (max-width: 320px) {
     .nav-tab__list-item {
-      margin-right: 6px;
+        margin-right: 6px;
     }
-  
+
     .nav-tab__link {
-      width: 82px;
-      height: 26px;
-      font-size: 10px;
+        width: 82px;
+        height: 26px;
+        font-size: 10px;
     }
-  
-  }
+
+}
